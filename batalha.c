@@ -1,40 +1,51 @@
 #include <stdio.h>
 
+#define NAVIOS 3
+
 int main (){
+    int tabuleiro[10][10] = {0};
+
+    int navio1 = 2;
+    int navio1Coluna = 4;
+    // NAVIO HORIZONTAL
+
+    int navio2 = 0;
+    int navio2coluna = 2;
+    // NAVIO VERTICAL
+
+    int navio3 = 5;
+    int navio3coluna = 0;
+    // NAVIOS DIAGONAIS
+    int navio4 = 4;
+    int navio4coluna = 7;
     
-    int tabuleiro[10][10] = {0}; //vetor bidimensional do tabuleiro
-
-    int navioHorizontal[3] = {3, 3, 3}; //vetor unidimensional para o navio horizontal
-    int navioVertical[3] = {3, 3, 3}; //vetor unidimensional para o navio vertical
-
-    // Coordenadas Vorizontais
-    int navio1 = 2; 
-    int colunaNavio1 = 4;
-
-    // Coordenadas Verticais
-    int navio2 = 5;
-    int colunaNavio2 = 7;
-
-    for (int i = 0; i < navioHorizontal[0]; i++)
+    for (int i = 0; i < NAVIOS; i++) // LOOP DO NAVIO HORIZONTAL
     {
-        tabuleiro[navio1][colunaNavio1 + i] = navio1[navioHorizontal];
-    }
-    //Impressões dos Navios
-    for (int i = 0; i < navioVertical[0]; i++)
-    {
-        tabuleiro[navio2 + i][colunaNavio2] = navio2[navioVertical];
+        tabuleiro[navio1][navio1Coluna + i] = NAVIOS;
     }
     
+    for (int i = 0; i < NAVIOS; i++) // LOOP DO NAVIO VERTICAL
+    {
+        tabuleiro[navio2 + i][navio2] = NAVIOS;
+    }
 
-    // Impressão do Tabuleiro
+    for (int i = 0; i < NAVIOS; i++) // LOPP DO NAVIO DIAGONAL 1
+    {
+        tabuleiro[navio3 + i][navio3coluna + i] = NAVIOS;
+    }
+    
+    for (int i = 0; i < NAVIOS; i++) // LOOP DO NAVIO DIAGONAL 2
+    {
+        tabuleiro[navio4 + i][navio4coluna - i] = NAVIOS;
+    }
+    
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
         {
-            printf("%d ", tabuleiro[i][j]);
+            printf("%d ", tabuleiro[i][j]); // IMPRESSÃO DO TABULEIRO
         }
         printf("\n");
     }
     
-
 }
